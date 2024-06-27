@@ -81,6 +81,11 @@ const AdminDashboard = ({ trains, setTrains, platforms, setPlatforms, numPlatfor
         });
         setTrains(updatedTrains);
       }} />
+      {!trains && (
+        <div className="no-trains-message">
+          No Trains Uploaded yet.
+        </div>
+      )}
     </div>
   );
 };
