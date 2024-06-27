@@ -23,8 +23,13 @@ Follow these instructions to set up and run the project on your local machine.
 1. **Clone the Repository:**
    ```sh
    git clone https://github.com/akhilkasetty/train-scheduler.git
+   ```
+   ```sh
    cd train-scheduler
+   ```
+   ```sh
    npm install
+   ```
 2. **Install Dependencies:**
    ```sh
     npm run dev
