@@ -1,0 +1,97 @@
+  
+  .audience-dashboard {
+    text-align: center;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+  }
+  
+  .train-status-table {
+    width: 25%;
+    padding-right: 20px;
+  }
+  
+  .train-status-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .train-status-table th, .train-status-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .train-status-table th {
+    background-color: #f2f2f2;
+    color: black;
+  }
+  
+  .train-status-table h2 {
+    margin-top: 20px;
+  }
+  
+  .platform-display {
+    width: 75%;
+  }
+  
+  .platform {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .platform-track {
+    flex-grow: 1;
+    height: 50px;
+    border-bottom: 2px solid #000;
+    position: relative;
+  }
+  
+  .train {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    border-radius: 5px;
+    animation: moveTrainArrive 3s linear forwards;
+  }
+  
+  .train.arrived {
+    background-color: green;
+    animation: moveTrainArrive 3s linear forwards;
+  }
+  
+  .train.departing {
+    background-color: red;
+    animation: moveTrainDepart 3s linear forwards;
+  }
+  
+  .platform-label {
+    margin-left: 10px;
+  }
+  
+  .timer {
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: #fff;
+  }
+  
+  @keyframes moveTrainArrive {
+    0% { left: 0; }
+    50% { left: 50%; }
+    100% { left: 50%; }
+  }
+  
+  @keyframes moveTrainDepart {
+    0% { left: 50%; }
+    100% { left: 100%; opacity: 0; }
+  }
+  
