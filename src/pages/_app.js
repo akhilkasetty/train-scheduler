@@ -1,4 +1,3 @@
-// src/pages/_app.js
 import '../styles/globals.css';
 import '../styles/PlatformDisplay.css';
 import '../styles/TrainTable.css';

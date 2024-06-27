@@ -38,10 +38,6 @@ const App = () => {
         </button>
       </nav>
 
-      {/* <nav className="navbar">
-        <button className="nav-button" onClick={() => setCurrentDashboard('admin')}>Manage Trains</button>
-        <button className="nav-button" onClick={() => setCurrentDashboard('audience')}>Train Status Display</button>
-      </nav> */}
       {currentDashboard === 'admin' ? (
         <AdminDashboard
           trains={trains}

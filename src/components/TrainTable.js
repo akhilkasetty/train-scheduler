@@ -2,8 +2,8 @@ import React from 'react';
 
 const TrainTable = ({ trains, modifySchedule }) => {
   const handleModifySchedule = (trainNumber) => {
-    const newArrival = prompt("Enter new scheduled arrival time (HH:mm):");
-    const newDeparture = prompt("Enter new scheduled departure time (HH:mm):");
+    const newArrival = prompt("Enter new Actual arrival time (HH:mm):");
+    const newDeparture = prompt("Enter new Actual departure time (HH:mm):");
     modifySchedule(trainNumber, newArrival, newDeparture);
   };
 
