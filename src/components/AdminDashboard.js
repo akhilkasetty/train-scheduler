@@ -62,7 +62,7 @@ const AdminDashboard = ({ trains, setTrains, platforms, setPlatforms, numPlatfor
             min="2"
             max="20"
           />
-          <button onClick={applyNumPlatformsChange}>Apply</button>
+          <button onClick={applyNumPlatformsChange} className='platform-button'>Apply</button>
         </label>
       </div>
       <div className="upload-section">

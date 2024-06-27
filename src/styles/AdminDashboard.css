@@ -11,6 +11,20 @@
     margin-bottom: 20px;
   }
   
+  .platform-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: black;
+    cursor: pointer;
+  }
+
+  .platform-button:hover {
+    background-color: #45a049;
+    color: white;
+  }
+  
   .upload-section {
     margin-bottom: 20px;
   }
