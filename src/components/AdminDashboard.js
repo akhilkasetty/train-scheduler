@@ -44,8 +44,6 @@ const AdminDashboard = ({ trains, setTrains, platforms, setPlatforms, numPlatfor
       }
     });
 
-    console.log("updatedTrains :", updatedTrains);
-
     setTrains(updatedTrains);
   };
 

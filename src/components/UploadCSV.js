@@ -2,34 +2,40 @@ import React from 'react';
 import { useCSVReader } from 'react-papaparse';
 import moment from 'moment';
 
-
 const UploadCSV = ({ onFileLoaded }) => {
   const { CSVReader } = useCSVReader();
+  const expectedHeader = ["trainNumber", "scheduledArrival", "scheduledDeparture", "priority"];
 
-  const handleOnDrop = (data) => {    
+  const handleOnDrop = (data) => {
+    const header = data.data[0];
+    if (JSON.stringify(header) !== JSON.stringify(expectedHeader)) {
+      console.error("Invalid file format. Please upload a file with the correct headers.");
+      alert("Invalid file format. Please upload a file with the correct headers.");
+      return;
+    }
+
     const parsedData = data.data.slice(1)
       .filter(row => row.length > 0 && row[0] && row[1] && row[2] && row[3]) 
       .map(row => {
-      const arrivalTime = row[1];
-      const departureTime = row[2];
-      
-      if (moment(departureTime, 'HH:mm').isBefore(moment(arrivalTime, 'HH:mm'))) {
-        console.log(`Invalid record: Departure time ${departureTime} is before arrival time ${arrivalTime} for train ${row[0]}`);
-        return null; 
-      }
-      
-      return {
-        trainNumber: row[0],
-        scheduledArrival: row[1],
-        scheduledDeparture: row[2],
-        priority: row[3],
-        actualArrival: row[1],
-        actualDeparture: row[2],
-        status: "Not arrived"
-      };
-    }).filter(record => record !== null); 
+        const arrivalTime = row[1];
+        const departureTime = row[2];
 
-    console.log("parsedData testing :", JSON.stringify(parsedData));
+        if (moment(departureTime, 'HH:mm').isBefore(moment(arrivalTime, 'HH:mm'))) {
+          console.log(`Invalid record: Departure time ${departureTime} is before arrival time ${arrivalTime} for train ${row[0]}`);
+          return null; 
+        }
+
+        return {
+          trainNumber: row[0],
+          scheduledArrival: row[1],
+          scheduledDeparture: row[2],
+          priority: row[3],
+          actualArrival: row[1],
+          actualDeparture: row[2],
+          status: "Not arrived"
+        };
+      }).filter(record => record !== null); 
+
     onFileLoaded(parsedData);
   };
 
